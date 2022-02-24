@@ -4,6 +4,8 @@ import com.book.store.api.CommonPage;
 import com.book.store.api.CommonResult;
 import com.book.store.mbg.model.PmsBrand;
 import com.book.store.service.PmsBrandService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,7 @@ import java.util.List;
  * @author nndmw
  * @date 2022/02/18
  */
+@Api(tags = "PmsBrandController", description = "商品品牌管理")
 @Controller
 @RequestMapping(value = "/brand")
 public class PmsBrandController {
@@ -33,6 +36,7 @@ public class PmsBrandController {
      *
      * @return {@link CommonResult}<{@link List}<{@link PmsBrand}>>
      */
+    @ApiOperation("获取所有品牌列表")
     @GetMapping(value = "/listAll")
     @ResponseBody
     public CommonResult<List<PmsBrand>> getBrandList() {
@@ -45,6 +49,7 @@ public class PmsBrandController {
      * @param pmsBrand pms品牌
      * @return {@link CommonResult}
      */
+    @ApiOperation("添加品牌")
     @PostMapping(value = "/create")
     @ResponseBody
     public CommonResult createBrand(@RequestBody PmsBrand pmsBrand) {
@@ -68,6 +73,7 @@ public class PmsBrandController {
      * @param result      结果
      * @return {@link CommonResult}
      */
+    @ApiOperation("更新指定id品牌信息")
     @PostMapping(value = "/update/{id}")
     @ResponseBody
     public CommonResult updateBrand(@PathVariable("id") Long id, @RequestBody PmsBrand pmsBrandDto, BindingResult result) {
@@ -89,6 +95,7 @@ public class PmsBrandController {
      * @param id id
      * @return {@link CommonResult}
      */
+    @ApiOperation("删除指定id的品牌")
     @GetMapping(value = "/delete/{id}")
     @ResponseBody
     public CommonResult deleteBrand(@PathVariable("id") Long id) {
@@ -109,6 +116,7 @@ public class PmsBrandController {
      * @param pageSize 页面大小
      * @return {@link CommonResult}<{@link CommonPage}<{@link PmsBrand}>>
      */
+    @ApiOperation("分页查询品牌列表")
     @GetMapping(value = "/list")
     @ResponseBody
     public CommonResult<CommonPage<PmsBrand>> listBrand(@RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
@@ -123,9 +131,10 @@ public class PmsBrandController {
      * @param id id
      * @return {@link CommonResult}<{@link PmsBrand}>
      */
+    @ApiOperation("获取指定id的品牌详情")
     @GetMapping(value = "/{id}")
     @ResponseBody
-    public CommonResult<PmsBrand> brand(@PathVariable("id")Long id) {
+    public CommonResult<PmsBrand> brand(@PathVariable("id") Long id) {
         return CommonResult.success(demoService.getBrand(id));
     }
 }

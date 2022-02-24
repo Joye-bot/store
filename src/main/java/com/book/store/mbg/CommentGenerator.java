@@ -37,6 +37,13 @@ public class CommentGenerator extends DefaultCommentGenerator {
         this.addRemarkComments = StringUtility.isTrue(properties.getProperty("addRemarkComments"));
     }
 
+    /**
+     * 添加字段注释
+     *
+     * @param field              场
+     * @param introspectedTable  进行自检表
+     * @param introspectedColumn 进行自检列
+     */
     @Override
     public void addFieldComment(Field field, IntrospectedTable introspectedTable, IntrospectedColumn introspectedColumn) {
         String remarks = introspectedColumn.getRemarks();
