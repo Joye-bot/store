@@ -6,9 +6,9 @@ spring:
     url: jdbc:mysql://localhost:3306/mall?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
     username: root
     password: yrO,cl:#x7y8
-#  mvc:
-#    pathmatch:
-#      matching-strategy: ant_path_matcher
+  #  mvc:
+  #    pathmatch:
+  #      matching-strategy: ant_path_matcher
   redis:
     # Redis服务器地址
     host: localhost
@@ -31,7 +31,9 @@ spring:
     # 连接超时时间（毫秒）
     timeout: 3000ms
 mybatis:
-  mapper-locations: classpath*:com/**/mapper/*.xml
+  mapper-locations:
+    - classpath:mapper/*.xml
+    - classpath*:com/**/mapper/*.xml
 
 # 自定义redis key
 redis:
@@ -42,3 +44,13 @@ redis:
       # 验证码超期时间
       authCode: 120
 
+# 自定义jwt key
+jwt:
+  # JWT存储的请求头
+  tokenHeader: Authorization
+  # JWT加解密使用的密钥
+  secret: mySecret
+  # JWT的超期限时间(60*60*24*7)
+  expiration: 604800
+  # JWT负载中拿到开头
+  tokenHead: Bearer

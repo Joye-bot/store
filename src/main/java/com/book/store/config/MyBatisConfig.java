@@ -2,7 +2,6 @@ package com.book.store.config;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
  * MyBatis相关配置
@@ -11,7 +10,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  * @date 2022/02/21
  */
 @Configuration
-@EnableTransactionManagement
-@MapperScan("com.book.store.mbg.mapper")
+@MapperScan({"com.book.store.mbg.mapper", "com.book.store.dao"})
 public class MyBatisConfig {
 }
