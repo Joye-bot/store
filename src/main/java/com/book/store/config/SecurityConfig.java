@@ -71,6 +71,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 // 对登录注册要允许匿名访问
                 .antMatchers("/admin/login", "/admin/register")
                 .permitAll()
+                // 搜索模块暂时运行匿名访问
+                .antMatchers("/esProduct/**")
+                .permitAll()
                 // 跨域请求会先进行一次options请求
                 .antMatchers(HttpMethod.OPTIONS)
                 .permitAll()
