@@ -41,6 +41,19 @@ spring:
       port: 27017
       # mongodb的连接数据库
       database: mall-port
+  rabbitmq:
+    # rabbitmq的连接地址
+    host: localhost
+    # rabbitmq的连接端口号
+    port: 5672
+    # rabbitmq的虚拟host
+    virtual-host: /mall
+    # rabbitmq的用户名
+    username: mall
+    # rabbitmq的密码
+    password: mall
+    # 确认消息已发送到交换机（Exchange）选择确认类型为交互
+    publisher-confirm-type: correlated
 management:
   health:
     elasticsearch:
