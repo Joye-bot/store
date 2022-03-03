@@ -34,6 +34,13 @@ spring:
     elasticsearch:
       repositories:
         enabled: true
+    mongodb:
+      # mongodb的连接地址
+      host: localhost
+      # mongodb的连接端口号
+      port: 27017
+      # mongodb的连接数据库
+      database: mall-port
 management:
   health:
     elasticsearch:

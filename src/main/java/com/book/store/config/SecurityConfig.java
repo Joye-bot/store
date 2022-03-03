@@ -72,7 +72,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/admin/login", "/admin/register")
                 .permitAll()
                 // 搜索模块暂时运行匿名访问
-                .antMatchers("/esProduct/**")
+                .antMatchers("/esProduct/**", "/member/readHistory/**")
                 .permitAll()
                 // 跨域请求会先进行一次options请求
                 .antMatchers(HttpMethod.OPTIONS)
