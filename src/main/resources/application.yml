@@ -89,3 +89,26 @@ jwt:
   expiration: 604800
   # JWT负载中拿到开头
   tokenHead: Bearer
+
+# OSS相关配置信息
+aliyun:
+  oss:
+    # oss对外服务的访问域名
+    endpoint: oss-cn-beijing.aliyuncs.com
+    url: store-oss2.oss-cn-beijing.aliyuncs.com
+    # 访问身份验证中用到用户标识
+    accessKeyId: LTAI5tPcPow6r1WkN8ce13fJ
+    # 用户用于加密签名字符串的oss用来验证签名字符串的密钥
+    accessKeySecret: GohQtmvkh1AMoitpHym4rOUf10WYNT
+    # oss存储空间
+    bucketName: store-oss2
+    policy:
+      # 签名有效期(S)
+      expire: 300
+    # 上传文件大小(M)
+    maxSize: 10
+    # 文件上传成功后的回调地址
+    callback: http://localhost:8080/aliyun/oss/callback
+    dir:
+      # 上传文件夹路径前缀
+      prefix: mall/image/
