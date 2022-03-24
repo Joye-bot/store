@@ -97,9 +97,9 @@ aliyun:
     endpoint: oss-cn-beijing.aliyuncs.com
     url: store-oss2.oss-cn-beijing.aliyuncs.com
     # 访问身份验证中用到用户标识
-    accessKeyId: LTAI5tPcPow6r1WkN8ce13fJ
+    accessKeyId: xxxxxx
     # 用户用于加密签名字符串的oss用来验证签名字符串的密钥
-    accessKeySecret: GohQtmvkh1AMoitpHym4rOUf10WYNT
+    accessKeySecret: xxxxxx
     # oss存储空间
     bucketName: store-oss2
     policy:
