@@ -14,6 +14,8 @@
 
     <artifactId>store-admin</artifactId>
 
+    <description>后台管理模块</description>
+
     <packaging>jar</packaging>
 
     <properties>
@@ -26,12 +28,8 @@
     <dependencies>
         <dependency>
             <groupId>com.book</groupId>
-            <artifactId>store-generator</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.book</groupId>
             <artifactId>store-portal</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
 

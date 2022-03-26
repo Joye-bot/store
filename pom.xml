@@ -5,12 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <!-- 继承说明：这里继承SpringBoot提供的工程 -->
-    <!--<parent>
+    <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.5.6</version>
-        <relativePath/> &lt;!&ndash; lookup parent from repository &ndash;&gt;
-    </parent>-->
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
 
     <groupId>com.book</groupId>
     <artifactId>store</artifactId>
@@ -28,6 +28,7 @@
         <module>store-search</module>
         <module>store-security</module>
         <module>store-portal</module>
+        <module>store-demo</module>
     </modules>
 
     <properties>
@@ -35,66 +36,22 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporiting.outputEncoding>UTF-8</project.reporiting.outputEncoding>
         <java.version>11</java.version>
-        <druid.version>1.1.16</druid.version>
+        <druid.version>1.2.8</druid.version>
         <hutool.version>5.7.21</hutool.version>
+        <swagger.version>2.9.2</swagger.version>
+        <spring-data-commons.version>2.6.2</spring-data-commons.version>
+        <pagehelper-starter.version>1.4.1</pagehelper-starter.version>
+        <mybatis-generator.version>1.4.0</mybatis-generator.version>
+        <jjwt.version>0.9.1</jjwt.version>
+        <jaxb-api.version>2.3.1</jaxb-api.version>
+        <swagger-models.version>1.5.21</swagger-models.version>
+        <aliyun-oss.version>3.14.0</aliyun-oss.version>
+        <logstash-logback.version>6.6</logstash-logback.version>
     </properties>
 
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-parent</artifactId>
-                <version>2.5.6</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-
-            <!-- 后台管理模块 -->
-            <dependency>
-                <groupId>com.book</groupId>
-                <artifactId>store-admin</artifactId>
-                <version>${store.version}</version>
-            </dependency>
-
-            <!-- 代码生成模块 -->
-            <dependency>
-                <groupId>com.book</groupId>
-                <artifactId>store-generator</artifactId>
-                <version>${store.version}</version>
-            </dependency>
-
-            <!-- 公共模块 -->
-            <dependency>
-                <groupId>com.book</groupId>
-                <artifactId>store-common</artifactId>
-                <version>${store.version}</version>
-            </dependency>
-
-            <!-- 搜索模块 -->
-            <dependency>
-                <groupId>com.book</groupId>
-                <artifactId>store-search</artifactId>
-                <version>${store.version}</version>
-            </dependency>
-
-            <!-- 安全模块 -->
-            <dependency>
-                <groupId>com.book</groupId>
-                <artifactId>store-security</artifactId>
-                <version>${store.version}</version>
-            </dependency>
-
-            <!-- 前台门户模块 -->
-            <dependency>
-                <groupId>com.book</groupId>
-                <artifactId>store-portal</artifactId>
-                <version>${store.version}</version>
-            </dependency>
-
-        </dependencies>
-    </dependencyManagement>
-
     <dependencies>
+
+        <!-- SpringBoot监控依赖 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
@@ -124,6 +81,7 @@
             <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
 
+        <!-- SpringBoot参数校验 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-validation</artifactId>
@@ -135,6 +93,7 @@
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
 
+        <!-- SpringBoot Web容器 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -154,6 +113,7 @@
             <optional>true</optional>
         </dependency>
 
+        <!-- 测试 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -170,16 +130,17 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- SpringData工具包 -->
         <dependency>
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-commons</artifactId>
-            <version>2.6.2</version>
+            <version>${spring-data-commons.version}</version>
         </dependency>
 
         <!-- 集成druid连接池 -->
         <dependency>
             <groupId>com.alibaba</groupId>
-            <artifactId>druid</artifactId>
+            <artifactId>druid-spring-boot-starter</artifactId>
             <version>${druid.version}</version>
         </dependency>
 
@@ -187,26 +148,26 @@
         <dependency>
             <groupId>com.github.pagehelper</groupId>
             <artifactId>pagehelper-spring-boot-starter</artifactId>
-            <version>1.4.1</version>
+            <version>${pagehelper-starter.version}</version>
         </dependency>
 
         <!-- MyBatis生成器 -->
         <dependency>
             <groupId>org.mybatis.generator</groupId>
             <artifactId>mybatis-generator-core</artifactId>
-            <version>1.4.0</version>
+            <version>${mybatis-generator.version}</version>
         </dependency>
 
         <!-- Swagger-UI API文档生产工具 -->
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>
-            <version>2.9.2</version>
+            <version>${swagger.version}</version>
         </dependency>
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
-            <version>2.9.2</version>
+            <version>${swagger.version}</version>
         </dependency>
 
         <!-- Hutool工具包 -->
@@ -220,52 +181,36 @@
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
             <artifactId>jjwt</artifactId>
-            <version>0.9.1</version>
+            <version>${jjwt.version}</version>
         </dependency>
 
+        <!-- JAXB -->
         <dependency>
             <groupId>javax.xml.bind</groupId>
             <artifactId>jaxb-api</artifactId>
-            <version>2.3.1</version>
+            <version>${jaxb-api.version}</version>
         </dependency>
 
+        <!-- 解决swagger 2.9.2 版本NumberFormatException -->
         <dependency>
             <groupId>io.swagger</groupId>
             <artifactId>swagger-models</artifactId>
-            <version>1.5.21</version>
+            <version>${swagger-models.version}</version>
         </dependency>
 
-        <!--<dependency>
-            <groupId>org.elasticsearch.client</groupId>
-            <artifactId>transport</artifactId>
-            <version>7.8.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.elasticsearch</groupId>
-            <artifactId>elasticsearch</artifactId>
-            <version>7.8.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.elasticsearch.client</groupId>
-            <artifactId>elasticsearch-rest-client</artifactId>
-            <version>7.8.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.elasticsearch.client</groupId>
-            <artifactId>elasticsearch-rest-high-level-client</artifactId>
-            <version>7.8.0</version>
-        </dependency>-->
-
-        <!-- OSS SDK 相关依赖 -->
+        <!-- 阿里云OSS -->
         <dependency>
             <groupId>com.aliyun.oss</groupId>
             <artifactId>aliyun-sdk-oss</artifactId>
-            <version>3.14.0</version>
+            <version>${aliyun-oss.version}</version>
         </dependency>
 
+        <!-- 集成logstash -->
+        <dependency>
+            <groupId>net.logstash.logback</groupId>
+            <artifactId>logstash-logback-encoder</artifactId>
+            <version>${logstash-logback.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -273,7 +218,6 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>2.5.6</version>
             </plugin>
         </plugins>
     </build>

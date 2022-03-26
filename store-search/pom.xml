@@ -13,6 +13,8 @@
 
     <artifactId>store-search</artifactId>
 
+    <description>搜索模块</description>
+
     <packaging>jar</packaging>
 
     <properties>

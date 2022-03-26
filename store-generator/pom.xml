@@ -13,6 +13,8 @@
 
     <artifactId>store-generator</artifactId>
 
+    <description>代码生成模块</description>
+
     <packaging>jar</packaging>
 
     <properties>
